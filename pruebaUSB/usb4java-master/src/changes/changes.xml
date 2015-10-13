@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<document xmlns="http://maven.apache.org/changes/1.0.0" 
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+         xsi:schemaLocation="http://maven.apache.org/changes/1.0.0 
+                             http://maven.apache.org/plugins/maven-changes-plugin/xsd/changes-1.0.0.xsd">
+  <properties>
+    <title>Changelog</title>
+    <author email="k@ailis.de">Klaus Reimer</author>
+  </properties>
+  <body>    
+    <release version="1.2.0" date="2013-02-16" description="Major update">
+      <action dev="kayahr" type="update" date="2014-02-16">
+        Split project into usb4java (Main library), usb4java-javax
+        (javax-usb extension) and libusb4java (Native code).
+      </action>
+      <action dev="llongi" type="add" date="2013-09-14">
+        Add hotplug support to low-level API.  
+      </action>
+      <action dev="llongi" type="add" date="2013-09-14">
+        Add asynchronous I/O support to low-level API.  
+      </action>
+    </release>
+    <release version="1.1.0" date="2013-07-13" description="Major update">
+      <action dev="kayahr" type="update" date="2013-07-13">
+        Using reunited libusb/libusbx 1.0.16 as backend.  
+      </action>
+      <action dev="kayahr" type="add" date="2013-07-13">
+        Add new libusb constants: LOW_SPEED_OPERATION, FULL_SPEED_OPERATION, 
+        HIGH_SPEED_OPERATION, SUPER_SPEED_OPERATION, BM_LPM_SUPPORT,
+        BM_LTM_SUPPORT, BT_WIRELESS_USB_DEVICE_CAPABILITY, BT_USB_2_0_EXTENSION,
+        BT_SS_USB_DEVICE_CAPABILITY, BT_CONTAINER_ID, CAP_HAS_HOTPLUG,
+        CAP_HAS_HID_ACCESS, CAP_SUPPORTS_DETACH_KERNEL_DRIVER, DT_BOS,
+        DT_DEVICE_CAPABILITY, DT_SS_ENDPOINT_COMPANION 
+      </action>
+      <action dev="kayahr" type="add" date="2013-07-13">
+        Wrap new libusb methods: getPortNumbers, setAutoDetachKernelDriver,
+        setLocale, strError.
+      </action>
+      <action dev="kayahr" type="add" date="2013-07-13">
+        Implement support for SuperSpeed Endpoint Companion Descriptor.
+      </action>
+      <action dev="kayahr" type="add" date="2013-07-13">
+        Implement support for BOS Descriptor, BOS Device Capability
+        Descriptor, USB 2.0 Extension Descriptor, SuperSpeed USB Device
+        Capability Descriptor and Container ID descriptor.
+      </action>
+      <action dev="kayahr" type="add" date="2013-07-13">
+        Using uninitialized descriptors now throw an IllegalStateException
+        instead of crashing.
+      </action>
+    </release>
+    <release version="1.0.0" date="2013-05-01" description="Major update">
+      <action dev="kayahr" type="add" date="2013-05-01">
+        Rewritten library to use libusb 1.0 as backend.  
+      </action>
+      <action dev="kayahr" type="add" date="2013-02-16">
+        Made library loading more universal to support loading shared libraries
+        for platforms not officially supported by usb4java.  
+      </action>
+      <action dev="kayahr" type="add" date="2013-02-16">
+        Add native library for linux-arm platform (Raspberry Pi).          
+      </action>
+      <action dev="kayahr" type="update" date="2013-02-16">
+        Native libraries are no longer extracted to a temporary directory when
+        they are not in a JAR file.
+      </action>      
+      <action dev="kayahr" type="fix" date="2013-02-18">
+        Improve error handling during native lib loading so javax-usb no
+        longer hides the important exceptions.
+      </action>      
+      <action dev="kayahr" type="fix" date="2013-02-20">
+        Fix logic error in AbstractIrpQueue#isBusy().
+      </action>      
+    </release>
+    <release version="0.5.0" date="2013-02-15" description="Major update">
+      <action dev="kayahr" type="add" date="2013-02-15">
+        Refactored project structure back into a single project. Native
+        libraries are now included in the main JAR file.
+      </action>
+    </release>
+    <release version="0.4.0" date="2012-11-12" description="Major update">
+      <action dev="kayahr" type="fix" date="2012-02-20">
+        Corrected endpoint index in JNI libraries.
+      </action>
+      <action dev="kayahr" type="add" date="2012-11-12">
+        Refactored loading of native libraries. The libraries are now a
+        standard Java dependency and are automatically extracted during
+        runtime. So no java.library.path or LD_LIBRARY_PATH tinkering
+        needed anymore. Just put the two JARs into your class path and
+        that's it.
+      </action>
+    </release>
+    <release version="0.3.4" date="2011-10-31" description="Minor update">
+      <action dev="kayahr" type="fix" date="2011-10-31">
+        Improved error messages when loading the JNI library fails.
+      </action>
+    </release>
+    <release version="0.3.3" date="2011-03-28" description="Minor update">
+      <action dev="kayahr" type="fix" date="2011-03-28">
+        Fixed library paths in dylibs so they can be placed in 
+        *.app/Contents/MacOS.
+      </action>
+    </release>
+    <release version="0.3.2" date="2011-03-27" description="Minor update">
+      <action dev="kayahr" type="add" date="2011-03-27">
+        Now trying to load the JNI library with the following library names:
+        usb4java, usb4java32, libusb4java, libusb4java32.
+      </action>
+    </release>
+    <release version="0.3.1" date="2011-03-05" description="Hotfix">
+      <action dev="kayahr" type="fix" date="2011-03-05">
+        Fixed missing support for custom buffer offsets and lengths.
+      </action>
+    </release>
+    <release version="0.3.0" date="2011-02-20" description="Minor update">
+      <action dev="kayahr" type="fix" date="2011-02-20">
+        Fixed problem with empty control requests on Mac OS X.
+      </action>
+      <action dev="kayahr" type="add" date="2011-02-20">
+        Implemented configuration to control the communication timeout.
+      </action>
+    </release>
+    <release version="0.2.0" date="2011-02-11" description="Minor update">
+      <action dev="kayahr" type="add" date="2011-02-11">
+        Implemented configuration to control the scan mode and to improve
+        scan performance by filtering for specific vendor and product ids.
+      </action>
+    </release>
+    <release version="0.1.1" date="2011-02-08" description="Hotfix">
+      <action dev="kayahr" type="fix" date="2011-02-08">
+        libusb reports broken bus root devices when detaching USB devices
+        and when user has no root permissions on linux. Fixed it by
+        only trusting root devices which are also in the device list of a bus. 
+      </action>
+    </release>
+  </body>
+</document>
